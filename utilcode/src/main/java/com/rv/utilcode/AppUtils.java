@@ -1,5 +1,6 @@
 package com.rv.utilcode;
 
+import android.app.Application;
 import android.os.Build;
 
 /**
@@ -10,8 +11,15 @@ import android.os.Build;
  */
 public class AppUtils {
 
+    private static Application sApp;
+
     private AppUtils() {
         throw new UnsupportedOperationException("u can't instantiate me...");
+    }
+
+    public static Application getApp() {
+        if (sApp != null) return sApp;
+        return null;
     }
 
     public static int getSDKVersion() {
@@ -27,7 +35,7 @@ public class AppUtils {
     }
 
     public static void exitApp() {
-        
+
         System.exit(0);
     }
 }
